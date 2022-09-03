@@ -34,3 +34,5 @@ git checkout -b dev origin/dev
 // 删除分支
 git brnach -d dev
 
+// 推送
+git push

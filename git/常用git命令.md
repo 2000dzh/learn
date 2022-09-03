@@ -14,6 +14,9 @@ git show commitId fileName
 git reflog 
 
 // 查看远程分支列表
+git branch -r
+
+// 查看本地和远程分支列表
 git branch -a
 
 // 创建新分支
@@ -25,14 +28,23 @@ git checkout -b dev
 // 切换分支
 git checkout dev
 
-// 拉取远程分支信息
+// 拉取远程分支列表信息
 git remote update origin -p
 
 // 下载远程分支(可以重命名)
 git checkout -b dev origin/dev
 
 // 删除分支
-git brnach -d dev
+git branch -d dev
 
-// 推送
-git push
+// 删除远程分支
+git push origin -d dev
+
+// 重命名分支
+git branch -m dev newdev
+
+
+
+
+
+

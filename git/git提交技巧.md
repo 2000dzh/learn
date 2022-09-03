@@ -6,8 +6,9 @@
   直到最后一次 commit
 > 功能完成切回到开发分支 alpha 本地  -->  git checkout alpha
   此时 alpha 远程分支可能有人已经提交了新的代码,所以我们要先拉取(提交合并分支前必须先拉取,好习惯!)
+  因为我们没有任何修改所以可以直接执行 git pull 
 >  1. git pull = git fetch + git merge
-     拉取远程分支代码,有冲突手动解决冲突然后再次提交,此时就会多一个 commit 记录 --> git pull orgin alpha
-  2. git pull --rebase == git fetch + git rebase
-     同样拉取远程分支的代码,有冲突手动解决冲突,只不过解决完冲突不能再用 git commit 了,
-     应该使用 git rebase --continue (保存解决的状态) --> git pull --rebase orgin alpha 
+      拉取远程分支代码,有冲突手动解决冲突然后再次提交,此时就会多一个 commit 记录 --> git pull orgin alpha
+   2. git pull --rebase == git fetch + git rebase
+      同样拉取远程分支的代码,有冲突手动解决冲突,只不过解决完冲突不能再用 git commit 了,
+      应该使用 git rebase --continue (保存解决的状态) --> git pull --rebase orgin alpha 

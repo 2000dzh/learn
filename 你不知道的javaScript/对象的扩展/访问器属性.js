@@ -26,5 +26,3 @@ const o = Object.create(null) // 没有任何属性,显示No properties
 // 2.我们使用 for...in 循环的时候会遍历对象原型链上的属性,解决办法一般是通过
 // Object.hasOwnProperty() 过滤原型链上的属性,使用 Object.create(null) 创建的对象就不用担心,
 // 因为他的原型对象指向了 null
-
-

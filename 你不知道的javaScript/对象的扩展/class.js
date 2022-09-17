@@ -30,8 +30,8 @@ class Foo1 {
   protoFn () {
     return '原型方法'
   }
-  unprepared () {
-    return '我是不可枚举的原型方法'
+  unprepared = () => {
+    return 'this总是指向当前类'
   }
   static stic = '静态属性'
   static stic11 = '静态属性'

@@ -54,9 +54,9 @@ class Foo1 {
 }
 const foo1 = new Foo1()
 console.log(foo1)
-console.log(Object.keys(foo1)) // ['proto', 'instance']
+console.log(Object.keys(foo1)) // ['instance2', 'instance','element','ceshi','unprepared']
 // 类内部定义的所有方法都是,不可枚举的
-console.log(Object.keys(Foo1)) // []
+console.log(Object.keys(Foo1)) // ['stic','stic11']
 console.log(Foo1.stic) // 静态属性
 console.log(Foo1.sticFn()) // 静态方法
 console.log(foo1.instance) // 实例属性
@@ -117,3 +117,17 @@ class Son extends Fn {
 // const fn = new Fn() // 报错
 const son = new Son()
 
+// 类的 prototype 属性和 __proto__ 属性。
+// 每个对象都有 __proto__ 属性,指向与之对应的原型对象
+// 每个函数都有 prototype 属性(除了 Function.prototype 函数)
+
+// 对于 class 继承,存在两条继承链
+// 1. 子类的 __proto__ 属性,指向父类。(表示构造函数的继承)
+  // Son.__proto__ === Father.__proto__  // true 
+// 2. 子类的原型对象的 __proto__ 属性,指向父类的原型对象。(表示原型链继承,子类的原型对象可以理解成父类原型对象的实例)
+  // Son.prototype.__proto__ === Father.prototype // true
+
+
+// 原生的构造函数 Boolean String Number Array Date Function RegExp Error Object
+// ES5 原生构造函数继承不行, ES6可以
+// 待补充.....

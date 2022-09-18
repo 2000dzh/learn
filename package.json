@@ -1,0 +1,23 @@
+{
+  "name": "learn",
+  "version": "1.0.0",
+  "description": "记录学习进步",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2000dzh/learn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2000dzh/learn/issues"
+  },
+  "homepage": "https://github.com/2000dzh/learn#readme",
+  "dependencies": {
+    "vite": "^3.1.2"
+  }
+}

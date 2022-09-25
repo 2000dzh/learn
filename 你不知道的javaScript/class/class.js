@@ -61,6 +61,7 @@ console.log(Foo1.stic) // 静态属性
 console.log(Foo1.sticFn()) // 静态方法
 console.log(foo1.instance) // 实例属性
 console.log(foo1.protoFn()) // 原型方法
+console.log(foo1.protoFn()) // 原型方法
 
 
 // ES6 类表达式

@@ -28,3 +28,6 @@ stash@{2}: On ...
 
 应用指定 stash (pop,drop同理)
 git stash apply stash@{1}
+
+这种问题是因为VSCode中，花括号在 PowerShell 中被认为是代码块执行标识符，若想正常使用，可用反引号 
+eg：git stash pop stash@`{0`} 

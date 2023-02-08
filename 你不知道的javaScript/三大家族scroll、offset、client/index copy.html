@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		​
+		<style>
+			* {
+				margin: 0;
+				box-sizing: border-box;
+			}
+			#father1 {
+				width: 150px;
+				height: 150px;
+				padding: 10px;
+				background: red;
+				overflow: auto;
+			}
+			#son1 {
+				width: 50px;
+				height: 50px;
+				background: blue;
+				line-height: 50px;
+				text-align: center;
+				color: #fff;
+			}
+			#father2 {
+				margin-top: 10px;
+				width: 150px;
+				height: 150px;
+				padding: 10px;
+				border: 5px solid green;
+				background: red;
+				overflow: auto;
+			}
+			#son2 {
+				width: 250px;
+				height: 50px;
+				background: blue;
+				line-height: 50px;
+				text-align: center;
+				color: #fff;
+			}
+			#father3 {
+				margin-top: 10px;
+				width: 150px;
+				height: 150px;
+				padding: 10px;
+				background: red;
+				overflow: auto;
+			}
+			#son3 {
+				width: 50px;
+				height: 250px;
+				background: blue;
+				line-height: 50px;
+				text-align: center;
+				color: #fff;
+			}
+			#father4 {
+				margin-top: 10px;
+				width: 150px;
+				height: 150px;
+				padding: 10px;
+				border: 5px solid green;
+				background: red;
+				overflow: auto;
+			}
+			#son4 {
+				width: 50px;
+				height: 250px;
+				background: blue;
+				line-height: 50px;
+				text-align: center;
+				color: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="father1">
+			<div id="son1">son1</div>
+		</div>
+		<div id="father2">
+			<div id="son2">son2</div>
+		</div>
+		<div id="father3">
+			<div id="son3">son3</div>
+		</div>
+		<div id="father4">
+			<div id="son4">son4</div>
+		</div>
+	</body>
+	<script>
+		let father1 = document.getElementById('father1')
+		// 元素没有滚动条，且没有border-top, border-bottom时，三者相等
+		console.log(
+			father1.scrollHeight,
+			father1.clientHeight,
+			father1.offsetHeight
+		) // 150,150, 150
+		let father2 = document.getElementById('father2')
+		// 元素没有垂直滚动条时，scrollHeight，clientHeight相等
+		console.log(
+			father2.scrollHeight,
+			father2.clientHeight,
+			father2.offsetHeight
+		) // 133,133, 150
+		let father3 = document.getElementById('father3')
+		// 元素有垂直滚动条，且没有border-top, border-bottom时，clientHeight和offsetHeight相等
+		console.log(
+			father3.scrollHeight,
+			father3.clientHeight,
+			father3.offsetHeight
+		) // 270,150,150
+		let father4 = document.getElementById('father4')
+		// 元素有垂直滚动条，且有border-top或 border-bottom时，三者不相等
+		console.log(
+			father4.scrollHeight,
+			father4.clientHeight,
+			father4.offsetHeight
+		) // 270,150,150
+	</script>
+</html>
+
+​

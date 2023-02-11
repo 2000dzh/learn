@@ -18,6 +18,7 @@
 				height: 500px;
 				background-color: pink;
 				overflow: hidden;
+        margin-top: 20px;
 				/* padding: 20px; */
 			}
 		</style>
@@ -63,24 +64,29 @@
 			libero sed arcu iaculis nec lobortis orci fermentum.
 		</div>
 		<input type="submit" id="nextstep" value="Next" />
+
+    <span>大的萨达是的撒大的萨达是的撒大的萨达是的撒</span>
 		<script>
 			const app = document.getElementById('app')
 			console.log(app)
 			console.log(app.scrollHeight)
 			// console.log(app.scrollWidth)
 			console.log(app.clientHeight)
+			window.addEventListener('scroll', function (e) {
+				console.log(app.offsetTop)
+			})
 			app.addEventListener('scroll', function (e) {
 				const element = e.target
-				console.log(element.scrollTop)
-				console.log(
-					Math.abs(
-						element.scrollHeight -
-							element.clientHeight -
-							element.scrollTop
-					) < 200
-				)
-				
+				console.log(element.offsetTop)
+				// console.log(
+				// 	Math.abs(
+				// 		element.scrollHeight -
+				// 			element.clientHeight -
+				// 			element.scrollTop
+				// 	) < 200
+				// )
 			})
 		</script>
+    <script src="./tree.js"></script>
 	</body>
 </html>

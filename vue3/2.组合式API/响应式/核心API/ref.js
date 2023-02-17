@@ -46,12 +46,12 @@ callSomeFunction(count)
 // 当 ref 被嵌套在一个响应式对象中,作为属性被访问或修改是,它会自动解包,因此表现的和普通属性一样。
 const count1 = ref(0)
 const state1 = reactive({
-	count,
+	count1,
 })
 console.log(state1.count1) // 0
-state.count = 1
+state.count1 = 1
 console.log(count1.value) // 1
-console.log(state.count) // 1
+console.log(state1.count1) // 1
 // 只有当嵌套在一个深层响应式对象内时,才会发生解包,当 ref 作为 浅层响应式对象 的属性被访问时则不会解包
 const count2 = ref(0);
 const state3 = shallowReactive({count2})

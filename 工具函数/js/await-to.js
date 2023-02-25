@@ -14,3 +14,6 @@ function to1 (promise, errorExt) {
       return [err, undefined]
     })
 }
+
+// 去除指定属性
+str.replace(/id=".*?"/g, "")

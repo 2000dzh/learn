@@ -17,3 +17,6 @@ function to1 (promise, errorExt) {
 
 // 去除指定属性
 str.replace(/id=".*?"/g, "")
+
+// 去除svgid
+decodeURI('').replace(/id=".*?"/g, "")

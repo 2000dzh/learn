@@ -6,4 +6,7 @@ type a1 = toArr<string>
 // 因为在泛型中使用条件类型的时候,如果传入的是一个联合类型,就会变成分发执行。
 type a2 = toArr<string | number>
 
+
+
+
 export {}

@@ -9,24 +9,52 @@
 // splice 不是纯函数
 
 // 纯函数
-function sum (age1, age2) {
-  return age1 + age2;
+function sum(age1, age2) {
+  return age1 + age2
 }
 
 // 不是纯函数,依赖全局变量
-let foo = 5;
+let foo = 5
 function add(num) {
-  return foo + num;
+  return foo + num
 }
 console.log(add(5))
-foo = 10;
+foo = 10
 console.log(add(5))
 
 const info = {
   name: 'd',
-  age: '6'
+  age: '6',
 }
 // 不是纯函数
 function printInfo(info) {
   info.name = '哈哈哈'
 }
+
+// function MakePowerFn(power) {
+//   return function (base) {
+//     return base ** power
+//   }
+// }
+
+
+const MakePowerFn = (power) => (base) => base ** power
+
+const power3 = MakePowerFn(3)
+const power2 = MakePowerFn(2)
+
+console.log(power2(10))
+console.log(power3(10))
+
+// 阶乘
+function fact(n) {
+  return n === 0 ? 1 : n * fact(n - 1)
+}
+
+function fact1(func, n) {
+  return n === 0 ? 1 : n * func(func, n - 1)
+}
+
+console.log(fact1(5))
+
+

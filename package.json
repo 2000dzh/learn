@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/2000dzh/learn#readme",
   "dependencies": {
+    "loadsh": "^0.0.4",
     "vite": "^4.0.1"
   }
 }

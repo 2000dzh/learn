@@ -3,3 +3,4 @@
 // method  加载顺序: 2
 // data 加载顺序: 3
 // computed 加载顺序: 4
+// watch 加载顺序: 5

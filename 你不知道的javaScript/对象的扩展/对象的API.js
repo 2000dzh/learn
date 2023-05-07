@@ -98,7 +98,7 @@ Object.prototype.hasOwnProperty // 原型方法
 // 源对象自身是否有指定的属性(不会触发原型链查找)
 // hasOwnProperty 可以被重写
 // 对于 Obejct.create(null) 没有原型的对象,hasOwnProperty 会报错
-// in (会触发原型链查找)
+//   (会触发原型链查找)
 
 const example = {
   a: undefined,

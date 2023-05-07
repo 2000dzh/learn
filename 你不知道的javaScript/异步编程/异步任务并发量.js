@@ -10,8 +10,6 @@ function sleep(time = 1000, name) {
 
 const tasks = [() => sleep(0, '吃饭'), () => sleep(0, '打游戏'), () => sleep(1000, '写代码'), () => sleep(8000, '做运动')]
 
-
-
 async function asyncPool(tasks = [], items = 2) {
   const taskPool = new Set()
   for (const task of tasks) {
@@ -66,10 +64,10 @@ async function asyncPool1(tasks, items = 2) {
   return results
 }
 
-asyncPool1(tasks).then((res) => {
-  console.log(res)
-  console.log('任务全部执行完毕')
-})
+// asyncPool1(tasks).then((res) => {
+//   console.log(res)
+//   console.log('任务全部执行完毕')
+// })
 
 // 循环发请求
 async function fn(arr) {
@@ -83,4 +81,27 @@ async function fn(arr) {
 }
 // fn(tasks)
 
+async function async1() {
+  const res = await async2()
+  console.log(res)
+  console.log('成功3')
+}
 
+async function async2() {
+  return new Promise((resolve) => {
+    resolve('成功1')
+  }).then((res) => {
+    console.log(res)
+    return '2112'
+  })
+
+  // console.log(res)
+}
+
+async1()
+
+new Promise((resolve) => {
+  resolve('成功2')
+}).then((res) => {
+  console.log(res)
+})

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- <script crossorigin src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.15.8/babel.min.js"></script> -->
+    <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+      // 1.渲染
+
+      // react18之前: ReactDOM.render
+      // ReactDOM.render(<h2>hello react</h2>, document.getElementById('root'))
+
+      // react18之后: React.createRoot
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+      // let message = 'hello react'
+      // function btnClick() {
+      //   message = 'hello vue'
+      // }
+
+      // root.render(
+      //   <div>
+      //     <h2>{message}</h2>
+      //     <button onClick={btnClick}>修改文本</button>
+      //   </div>
+      // )
+
+      // 使用组件重构上述案例
+      // 类组件和函数组件
+      class Root extends React.Component {
+        constructor() {
+          super()
+
+          this.state = {
+            message: 'hello react',
+          }
+
+          // 为了在回调中使用 this
+          // this.btnClick = this.btnClick.bind(this)
+        }
+
+        btnClick() {
+          console.log(this)
+          this.setState({ message: 'hello vue' })
+        }
+
+        render() {
+          return (
+            <div>
+              <h2>{this.state.message}</h2>
+              <button onClick={this.btnClick.bind(this)}>修改文本</button>
+            </div>
+          )
+        }
+      }
+      root.render(<Root />)
+    </script>
+  </body>
+</html>

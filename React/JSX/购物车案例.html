@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+
+      class Root extends React.Component {
+        constructor() {
+          super()
+          this.state = {
+            bookList: [
+              {
+                name: '算法导论',
+                date: '2022-1-12',
+                price: 100,
+                number: 1,
+              },
+              {
+                name: '编程艺术',
+                date: '2021-1-12',
+                price: 120,
+                number: 1,
+              },
+              {
+                name: '编程主机',
+                date: '20002-9-12',
+                price: 109,
+                number: 5,
+              },
+              {
+                name: '代码大全',
+                date: '2012-4-12',
+                price: 54,
+                number: 1,
+              },
+            ],
+          }
+        }
+
+        render() {
+          const { bookList } = this.state
+          function getTotalPrice() {
+            if (Array.isArray(bookList) && bookList.length) {
+              return bookList.reduce((sum, item) => sum + item.price * item.number, 0)
+            }
+
+            return 0
+          }
+
+          return (
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>书籍名称</th>
+                    <th>出版日期</th>
+                    <th>价格</th>
+                    <th>购买数量</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {bookList.map((obj, index) => {
+                    return (
+                      <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{obj.name}</td>
+                        <td>{obj.date}</td>
+                        <td>{obj.price}</td>
+                        <td>
+                          <button onClick={() => this.changeQuantity(false, obj, index)}>-</button>
+                          {obj.number}
+                          <button onClick={() => this.changeQuantity(true, obj, index)}>+</button>
+                        </td>
+                        <td>
+                          <button onClick={() => this.deleteBllok(index)}>删除</button>
+                        </td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+              <div>总价格: {getTotalPrice()}</div>
+            </div>
+          )
+        }
+
+        deleteBllok(index) {
+          const newBookList = [...this.state.bookList]
+          newBookList.splice(index, 1)
+          this.setState({
+            bookList: newBookList,
+          })
+        }
+
+        changeQuantity(flag, obj, index) {
+          const newBookList = [...this.state.bookList]
+          let num = 0
+
+          if (flag) {
+            num = obj.number + 1
+          } else {
+            num = obj.number - 1
+          }
+          if (num < 0) {
+            return
+          }
+          newBookList[index].number = num
+          this.setState({
+            newBookList,
+          })
+        }
+      }
+
+      root.render(<Root />)
+    </script>
+  </body>
+</html>

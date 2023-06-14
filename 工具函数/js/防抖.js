@@ -1,28 +1,32 @@
-import { debounce } from 'loadsh'
+function miniDebounce(func, wait, options) {
+  let leading = false
+  let trailing = true
+  let timeoutId
+  let lastThis
 
-const App = document.getElementById('app')
+  if (options !== null) {
+    leading = Object.hasOwn(options, 'leading') ? !!options.leading : leading
+    trailing = Object.hasOwn(options, 'trailing') ? !!options.trailing : trailing
+  }
 
-function antiShaking(func, wait = 0) {
-  let timer = null
-  return (...args) => {
-    clearTimeout(timer)
-    timer = setTimeout(() => {
-      fn.apply(this, args)
+  function debounce(...args) {
+    lastThis = this
+    if (leading && !timeoutId) {
+      const context = lastThis
+      lastThis = undefined
+      func.apply(context, args)
+    }
+
+    clearTimeout(timeoutId)
+    let timeoutId = setTimeout(() => {
+      if (trailing && lastThis) {
+        func.apply(lastThis, args)
+      }
+
+      clearTimeout(timeoutId)
+      timeoutId = undefined
     }, wait)
   }
+
+  return debounce
 }
-
-function fn(a, b) {
-  console.log(a + b)
-}
-
-const aa = antiShaking(fn, 1000)
-// aa(1,2)
-// aa(1,2)
-// aa(1,2)
-// aa(1,2)
-
-const b1 = debounce(fn, 1000)
-
-App.addEventListener('click', () => aa(1, 2))
-// App.addEventListener('click', antiShaking(fn(1,2), 1000))

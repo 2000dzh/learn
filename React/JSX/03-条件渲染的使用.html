@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-条件渲染的使用</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+
+      class Root extends React.Component {
+        constructor() {
+          super()
+          this.state = {
+            isReady: true,
+          }
+        }
+
+        render() {
+          const { isReady } = this.state
+
+          let showElement = null
+          if (isReady) {
+            showElement = <h2>1</h2>
+          } else {
+            showElement = <h2>2</h2>
+          }
+
+          return <div>{showElement}</div>
+        }
+      }
+
+      root.render(<Root />)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-JSX的事件绑定</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+      /* 
+        this的四种绑定规则
+          1.默认绑定
+          2.隐式绑定
+          3.显示绑定
+          4.new绑定
+      */
+
+      class Root extends React.Component {
+        constructor() {
+          super()
+          this.state = {
+            message: 'hello react',
+            counter: 100,
+          }
+
+          this.btn1Click = this.btn1Click.bind(this, 18)
+        }
+
+        btn1Click(age, event) {
+          console.log(event.target, age)
+          this.setState({ counter: (this.state.counter += 1) })
+        }
+
+        btn2Click = (event) => {
+          console.log(event.target)
+          this.setState({ counter: (this.state.counter += 2) })
+        }
+
+        btn3Click(event, age) {
+          console.log(event.target, age)
+          this.setState({ counter: (this.state.counter += 1) })
+        }
+
+        render() {
+          const { message, counter } = this.state
+          return (
+            <div>
+              {/* 1.通过bind绑定 */}
+              <button onClick={this.btn1Click}>按钮1</button>
+
+              {/* 2.ES6 class fields */}
+              <button onClick={this.btn2Click}>按钮2</button>
+
+              {/* 3.直接传入一个箭头函数 */}
+              <button onClick={(event) => this.btn3Click(event, 18)}>按钮3</button>
+
+              <h2>当前计数{counter}</h2>
+            </div>
+          )
+        }
+      }
+
+      root.render(<Root />)
+    </script>
+  </body>
+</html>

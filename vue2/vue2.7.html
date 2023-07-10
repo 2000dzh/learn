@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="app1"></div>
+    <div class="main">11111111</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <script type="module">
+      const main = document.querySelector('.main')
+      // vue2创建共享的响应式变量
+      // Vue.observable( object )
+      const store = Vue.observable({
+        name: 'dzh',
+      })
+      main.addEventListener(
+        'click',
+        () => {
+          console.log('测试')
+          store.name += 'dzh'
+        },
+        false
+      )
+      const data = {
+        age: 18,
+        store,
+      }
+      const App = new Vue({
+        el: '#app',
+        data,
+        computed: {
+          aa() {
+            console.log('#app组件检测到')
+            store.name += 'dzh'
+            return store.name
+          },
+        },
+        methods: {
+          print() {
+            this.age += 1
+            console.log(this.age)
+            store.name = 'DZh'
+          },
+        },
+        template: `<div @click="print" >{{age}}{{aa}}{{age1}}</div>`,
+        onMounted() {
+          alert('1221')
+        },
+      })
+      // console.log(App.age)
+      // App.print()
+
+      const App1 = new Vue({
+        el: '#app1',
+        data,
+        computed: {
+          // aa() {
+          //   console.log('#app1组件检测到')
+          //   store.name += 'dzh'
+          //   return store.name
+          // },
+        },
+        methods: {
+          print() {
+            this.age += 1
+            console.log(this.age)
+          },
+        },
+        template: `<div @click="print" >{{age}}</div>`,
+      })
+
+      console.log(App)
+      console.log(App1)
+      function Super(options) {}
+      const p = new Super({
+        data: {
+          age: 18,
+        },
+        methods: {
+          print() {
+            console.log(this.age)
+          },
+        },
+      })
+      // console.log(p.age)
+      // p.print()
+    </script>
+  </body>
+</html>

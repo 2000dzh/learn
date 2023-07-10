@@ -37,7 +37,6 @@ function printInfo(info) {
 //   }
 // }
 
-
 const MakePowerFn = (power) => (base) => base ** power
 
 const power3 = MakePowerFn(3)
@@ -56,5 +55,3 @@ function fact1(func, n) {
 }
 
 console.log(fact1(5))
-
-

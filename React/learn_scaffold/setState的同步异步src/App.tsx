@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import { flushSync } from 'react-dom'
 
 interface State {

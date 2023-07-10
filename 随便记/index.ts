@@ -24,7 +24,7 @@ const arr = [1, [2, 3]]
 //  JS 中用递归思想解决数组拍平问题
 function flatten(arr: any[]): any {
   if (arr.length === 0) {
-    return
+    return []
   }
   const [first, ...rest] = arr
   if (Array.isArray(first)) {

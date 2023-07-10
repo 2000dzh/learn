@@ -57,7 +57,7 @@ class Root extends React.Component<{}, State> {
     return '返回的快照值会传递给 componentDidUpdate() 方法的第三个参数'
   }
 
-  render(): React.ReactNode {
+  render() {
     const { message, info } = this.state
     return (
       <>

@@ -5,6 +5,7 @@ import UseEffect from './components/useEffect'
 import UseContext from './components/useContext'
 import UseReducer from './components/useReducer'
 import UseMemo from './components/useMemo'
+import UseCallBack from './components/useCallBack'
 
 interface Theme {
   color?: string
@@ -34,6 +35,8 @@ const App = function () {
       <UseReducer />
       <hr />
       <UseMemo />
+      <hr />
+      <UseCallBack />
     </>
   )
 }

@@ -1,44 +1,74 @@
-import React, { createContext, useState } from 'react'
+import React, { Component } from 'react'
 import { Button } from 'antd'
-import UseState from './components/useState'
-import UseEffect from './components/useEffect'
-import UseContext from './components/useContext'
-import UseReducer from './components/useReducer'
-import UseMemo from './components/useMemo'
-import UseCallBack from './components/useCallBack'
+import MetaphysicsState from './玄学state'
+import ThoroughProps from './深入props'
 
-interface Theme {
-  color?: string
-}
-export const ThemeContext = createContext<Theme>({})
-
-const App = function () {
-  let [color, setColor] = useState('pink')
-
-  function change() {
-    setColor('blue')
+class Fn extends Component {
+  move() {
+    console.log(this)
   }
 
+  move1 = () => {
+    console.log('实例方法1', this)
+  }
+
+  move2 = function (this: any) {
+    console.log('实例方法2', this)
+  }
+
+  render() {
+    return (
+      <>
+        <div></div>
+        <Button onClick={this.move}>原型方法</Button>
+        <Button onClick={this.move1}>实例方法1</Button>
+        <Button onClick={this.move2}>实例方法2</Button>
+      </>
+    )
+  }
+}
+
+const App = function () {
   return (
     <>
-      <h1>函数式组件</h1>
+      {/* <h1>React进阶指南(掘金小册)</h1> */}
       <hr />
-      <UseState />
-      <hr />
-      <UseEffect />
-      <hr />
-      <Button onClick={() => change()}>改变依赖</Button>
-      <ThemeContext.Provider value={{ color }}>
-        <UseContext />
-      </ThemeContext.Provider>
-      <hr />
-      <UseReducer />
-      <hr />
-      <UseMemo />
-      <hr />
-      <UseCallBack />
+      {/* <MetaphysicsState /> */}
+      <ThoroughProps />
     </>
   )
 }
+
+// class Name {
+//   age = function (this: any) {
+//     console.log(this)
+//     return this
+//   }
+//   move = () => {
+//     console.log(this)
+//     return this
+//   }
+// }
+
+// const name = new Name()
+// console.log(name)
+
+// console.log(name === name.age())
+// console.log(name === name.move())
+
+// const obj: any = {
+//   sex: '男',
+// }
+
+// obj.age = name.age
+// obj.move = name.move
+
+// // obj.age()
+// console.log(obj.age())
+// // obj.move()
+// console.log(obj.move())
+
+// // console.log(obj.age())
+// // console.log(obj.move())
 
 export default App

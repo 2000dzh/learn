@@ -48,7 +48,7 @@ class Root extends React.Component<{}, State> {
   }
 
   shouldComponentUpdate(nextProps: Readonly<{}>, nextState: Readonly<{ message: string }>, nextContext: any): boolean {
-    console.log('可以在次方法判断是否需要重新渲染组件,返回 false，则不会调用 render() 方法和后续的生命周期函数')
+    console.log('可以在此方法判断是否需要重新渲染组件,返回 false，则不会调用 render() 方法和后续的生命周期函数')
     return true
   }
 

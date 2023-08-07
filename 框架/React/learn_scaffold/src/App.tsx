@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Button } from 'antd'
-import MetaphysicsState from './玄学state'
 import ThoroughProps from './深入props'
-
+import MetaphysicsState from './玄学state'
+import LifeCycle from './生命周期'
 class Fn extends Component {
   move() {
     console.log(this)
@@ -34,7 +34,8 @@ const App = function () {
       {/* <h1>React进阶指南(掘金小册)</h1> */}
       <hr />
       {/* <MetaphysicsState /> */}
-      <ThoroughProps />
+      {/* <ThoroughProps /> */}
+      <LifeCycle />
     </>
   )
 }

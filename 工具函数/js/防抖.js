@@ -28,5 +28,11 @@ function miniDebounce(func, wait, options) {
     }, wait)
   }
 
+  arr1.forEach(item => {
+    if(item.name && item.age) {
+      //
+    }
+  })
+
   return debounce
 }

@@ -3,6 +3,11 @@ import { Button } from 'antd'
 import ThoroughProps from './深入props'
 import MetaphysicsState from './玄学state'
 import LifeCycle from './生命周期'
+import MultifunctionalRef from './多功能ref'
+import ProviderPage from './提供者 context'
+import HighOrderComponents from './高阶组件'
+import RenderControl from './优化篇/渲染控制'
+import ProcessingMassiveAmountsOfData from './优化篇/处理海量数据'
 class Fn extends Component {
   move() {
     console.log(this)
@@ -35,7 +40,12 @@ const App = function () {
       <hr />
       {/* <MetaphysicsState /> */}
       {/* <ThoroughProps /> */}
-      <LifeCycle />
+      {/* <LifeCycle /> */}
+      {/* <MultifunctionalRef /> */}
+      {/* <ProviderPage /> */}
+      {/* <HighOrderComponents /> */}
+      {/* <RenderControl /> */}
+      {/* <ProcessingMassiveAmountsOfData /> */}
     </>
   )
 }

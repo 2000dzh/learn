@@ -5,6 +5,8 @@
 // computed 加载顺序: 4
 // watch 加载顺序: 5
 
+// vue 可找到组件最外层元素,通过 __vue__ 属性访问组件对象信息
+
 axios({
   method: 'get',
   url: '/api',

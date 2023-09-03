@@ -45,7 +45,7 @@ const App = function () {
       {/* <ProviderPage /> */}
       {/* <HighOrderComponents /> */}
       {/* <RenderControl /> */}
-      {/* <ProcessingMassiveAmountsOfData /> */}
+      <ProcessingMassiveAmountsOfData />
     </>
   )
 }

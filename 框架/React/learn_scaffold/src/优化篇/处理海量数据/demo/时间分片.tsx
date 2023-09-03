@@ -72,14 +72,4 @@ const TimeSlicing: FC = () => {
 
 export default TimeSlicing
 
-interface aaa {
-  a: string
-  b: number
-  c: string
-}
 
-type cc<P, K> = {
-  [k in keyof P]: P[k] extends K ? k : never
-}[keyof P]
-
-type ccccc = cc<aaa, string | boolean>

@@ -6,7 +6,7 @@ module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
     app: path.resolve(__dirname, '../src/main.js'),
-    header: path.resolve(__dirname, '../src/header.js'),
+    header: path.resolve(__dirname, '../src/header.js')
   },
   output: {
     filename: 'static/js/[name].[hash:8].js',
@@ -98,7 +98,7 @@ module.exports = {
       title: 'webpack-demo',
       filename: 'index.html',
       template: path.resolve(__dirname, '../public/index.html'),
-      inject: true,
+      inject: 'body',
       scriptLoading: 'blocking',
       minify: {
         removeComments: true,
@@ -108,7 +108,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: 'header.html', // 打包后生成的文件名
-      template: path.resolve(__dirname, '../public/header.html'),
+      template: './public/header.html',
       inject: true, // 设置向模版注入静态资源的方式
       // 1、true或者body：所有JavaScript资源插入到body元素的底部
       // 2、head: 所有JavaScript资源插入到head元素中
@@ -122,7 +122,7 @@ module.exports = {
       chunks: ['header'],
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[hash].css',
+      filename: 'static/css/[name].[hash].css',
       chunkFilename: '[id].css',
     }),
   ],

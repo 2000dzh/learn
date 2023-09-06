@@ -6,7 +6,7 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    compress: true,
+    compress: true, //是否启动压缩 gzip
     port: 8080,
   },
 })

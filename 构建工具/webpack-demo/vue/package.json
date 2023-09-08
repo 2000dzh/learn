@@ -1,0 +1,32 @@
+{
+  "name": "vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --open --config build/webpack.dev.conf.js",
+    "build": "webpack --config build/webpack.prod.conf.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^5.0.1",
+    "dart-sass": "^1.25.0",
+    "dotenv-webpack": "^8.0.1",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "sass": "^1.66.1",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "vue-loader": "^17.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "webpack-merge": "^5.9.0"
+  },
+  "dependencies": {
+    "vue": "^3.3.4"
+  }
+}

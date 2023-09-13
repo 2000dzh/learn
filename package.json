@@ -17,8 +17,7 @@
     "url": "https://github.com/2000dzh/learn/issues"
   },
   "homepage": "https://github.com/2000dzh/learn#readme",
-  "dependencies": {
-    "loadsh": "^0.0.4",
-    "vite": "^4.0.1"
+  "devDependencies": {
+    "vite": "^4.4.9"
   }
 }

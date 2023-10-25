@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>预留衔接空间消除渐变产生的锯齿</title>
+    <style>
+      .main {
+        width: 800px;
+        margin: auto;
+      }
+      .box1 {
+        width: 200px;
+        height: 200px;
+        /* 从一种颜色直接到另外一种颜色，但是，仔细看看衔接处，会发现有非常明显的锯齿效果 */
+        /* 在衔接处，适当留出一些渐变空间 */
+        /* 将从 47% 到 47% 的一个变化，改为了 从 47% 到 47.3%  这个值根据情况自己调整*/
+        background: radial-gradient(pink, pink 47%, #000 47.5%, #000 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="box1"></div>
+    </div>
+  </body>
+</html>

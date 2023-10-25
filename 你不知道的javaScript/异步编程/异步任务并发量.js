@@ -31,7 +31,7 @@ async function asyncPool(tasks = [], items = 2) {
 //   console.log('任务全部执行完毕')
 // })
 
-// 优化版本
+
 async function asyncPool1(tasks, items = 2) {
   const taskPool = new Set()
   const results = []

@@ -22,6 +22,7 @@ Promise.race([failedCb, successCb])
 const arr = [1, [2, 3]]
 
 //  JS 中用递归思想解决数组拍平问题
+
 function flatten(arr: any[]): any {
   if (arr.length === 0) {
     return []
@@ -32,6 +33,18 @@ function flatten(arr: any[]): any {
   }
 
   return [first, ...flatten(rest)]
+}
+
+function flatten1(arr: any[]): any {
+  if (arr.length === 0) {
+    return []
+  }
+
+  let result = []
+  for (let item of arr) {
+    result.push(...(Array.isArray(item) ? flatten1(item) : [item]))
+  }
+  return result
 }
 
 // TS 中用递归思想解决数组拍平问题

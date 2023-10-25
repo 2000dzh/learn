@@ -1,11 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <script></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>文件分片</title>
+  </head>
+  <body>
+    <input type="file" id="inputFile" />
+    <script type="module">
+      import SparkMD5 from 'spark-md5'
+      const inputFile = document.getElementById('inputFile')
+      const CHUNK_SIZE = 5 * 1024 * 1024 // 5MB
+      const THREAD_COUNT = 4
+
+      async function cutFile(file) {
+        return new Promise((resolve) => {
+          const result = []
+          // 上传的文件可以切多少个
+          const chunkCount = Math.ceil(file.size / CHUNK_SIZE)
+          // 一个线程负责多少任务
+          const workerChunkCount = Math.ceil(chunkCount / THREAD_COUNT)
+          let finishCount = 0
+          console.log(chunkCount, workerChunkCount, file.size)
+
+          for (let i = 0; i < THREAD_COUNT; i++) {
+            const worker = new Worker('./worker.js', {
+              type: 'module',
+            })
+
+            const startIndex = i * workerChunkCount
+            if (startIndex > chunkCount) {
+              resolve(result)
+            }
+            let endIndex = startIndex + workerChunkCount
+            if (endIndex > chunkCount) {
+              endIndex = chunkCount
+            }
+            worker.postMessage({ file, CHUNK_SIZE, startIndex, endIndex })
+            worker.onmessage = (e) => {
+              for (let i = startIndex; i < endIndex; i++) {
+                result[i] = e.data[i - startIndex]
+              }
+              worker.terminate()
+              finishCount++
+              if (finishCount >= THREAD_COUNT) {
+                resolve(result)
+              }
+            }
+          }
+        })
+      }
+
+      async function fileChange(e) {
+        const file = e.target.files[0]
+        console.time('cutFile')
+        const chunks = await cutFile(file)
+        console.timeEnd('cutFile')
+
+        console.log(chunks)
+      }
+      inputFile.addEventListener('change', fileChange)
+    </script>
+  </body>
 </html>

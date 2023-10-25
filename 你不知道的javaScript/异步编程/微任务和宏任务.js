@@ -16,6 +16,7 @@ a3.innerHTML = '测试3'
 App.appendChild(a1)
 App.appendChild(a2)
 App.appendChild(a3)
+console.log(App)
 
 // 微任务: Promise 的 then 方法,MutationObserver
 // 微任务队列 micro task queue
@@ -23,6 +24,8 @@ App.appendChild(a3)
 // 微任务的执行优先级比宏任务高,先清空当前微任务队列后,再去执行下一个宏任务
 Promise.resolve().then(() => {
   console.log('微任务', App.children.length)
+  console.log(App)
+  App.innerHTML = '123'
   alert('微任务,Promise then') // 此时 DOM没有渲染
 })
 

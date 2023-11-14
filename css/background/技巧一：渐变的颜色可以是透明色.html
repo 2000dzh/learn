@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>技巧一 透明的渐变色</title>
+    <style>
+      .main {
+        width: 800px;
+        margin: auto;
+      }
+      ul {
+        position: relative;
+        width: 200px;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        /* border: 1px solid #ccc; */
+        padding: 5px;
+      }
+      ul::before {
+        content: '';
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        top: 0px;
+        width: 100px;
+       
+        /* 从左到右,透明色到白色 */
+        background: linear-gradient(90deg, transparent, #fff);
+      }
+      li {
+        margin-right: 15px;
+        border: 1px solid #ccc;
+        list-style: none;
+        cursor: pointer;
+        padding: 4px;
+        white-space: nowrap;
+      }
+      li:hover {
+        background-color: pink;
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <ul>
+        <li>历史</li>
+        <li>风格和机会</li>
+        <li>浪漫主义</li>
+        <li>ss</li>
+      </ul>
+    </div>
+  </body>
+</html>

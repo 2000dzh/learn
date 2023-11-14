@@ -108,6 +108,7 @@ module.exports = {
   plugins: [
     // webpack-dev-server 配合 html-webpack-plugin 插件会将 entry 属性指向的 JavaScript 文件自动注入到 HTML 模板文件中
     new HtmlWebpackPlugin({
+      title: 'webpack-demo',
       filename: 'index.html', // 打包后生成的文件名
       template: './public/index.html',
       inject: true, // 设置向模版注入静态资源的方式

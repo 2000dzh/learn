@@ -146,7 +146,7 @@ class ClassComponent extends Component<any, StateClass> {
 // 两者区别
 // 1.useLayoutEffect是在DOM更新之后,浏览器重绘之前,这样方便操作DOM且浏览器只会绘制一次
 // 如果修改DOM放在 useEffect,那么 useEffect 是在浏览器绘制结束之后执行,接下来又修改 DOM 就可能造成浏览器回流和重绘
-// 2.  useEffect会阻塞浏览器绘制视图  useLayoutEffect会阻塞浏览器绘制
+// 2.  useEffect不会阻塞浏览器绘制视图  useLayoutEffect会阻塞浏览器绘制
 // 一句话概括如何选择 useEffect 和 useLayoutEffect ：修改 DOM ，改变布局就用 useLayoutEffect ，其他情况就用 useEffect
 function FunctionComponents() {
   useEffect(() => {

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input type="file" id="fileInput" />
+      <button id="singleFile">上传单个文件</button>
+    </div>
+
+    <div>
+      <input type="file" id="fileInputs" multiple />
+      <button id="multipleFiles">上传多个文件</button>
+    </div>
+
+    <div>
+      <input type="file" id="fileInputs1" multiple />
+      <button id="uploadFileFields">上传多个文件(指定文件字段)</button>
+    </div>
+
+    <div>
+      <input type="file" id="fileInputs2" multiple />
+      <button id="uploadAnyFiles">上传多个文件(并不知道有哪些字段是 file)</button>
+    </div>
+
+    <div>
+      <input type="file" id="fileInputs3" multiple />
+      <button id="uploadSpecifyPath">上传多个文件(后台指定存储路径)</button>
+    </div>
+
+    <script src="https://unpkg.com/axios@0.24.0/dist/axios.min.js"></script>
+    <script>
+      const origin = location.origin;
+
+      const FileInput = document.getElementById('fileInput');
+      const SingleFile = document.getElementById('singleFile');
+      const FileInputs = document.getElementById('fileInputs');
+      const multipleFiles = document.getElementById('multipleFiles');
+      const FileInputs1 = document.getElementById('fileInputs1');
+      const UploadFileFields = document.getElementById('uploadFileFields');
+      const FileInputs2 = document.getElementById('fileInputs2');
+      const UploadAnyFiles = document.getElementById('uploadAnyFiles');
+      const FileInputs3 = document.getElementById('fileInputs3');
+      const UploadSpecifyPath = document.getElementById('uploadSpecifyPath');
+
+      async function fn1() {
+        const data = new FormData();
+        data.set('name', '丁');
+        data.set('sex', '男');
+        data.set('aaa', FileInput.files[0]);
+
+        // const res = await axios.post(`${origin}/aaa`, data)
+        const res = await axios.post('http://localhost:3245/aaa', data);
+        console.log(res);
+      }
+
+      SingleFile.onclick = fn1;
+
+      async function fn2() {
+        const data = new FormData();
+        data.set('name', '丁');
+        data.set('sex', '男');
+
+        Array.from(FileInputs.files, function (item) {
+          data.append('bbb', item);
+        });
+        // const res = await axios.post(`${origin}/bbb`, data)
+        const res = await axios.post('http://localhost:3245/bbb', data);
+        console.log(res);
+      }
+
+      multipleFiles.onclick = fn2;
+
+      async function fn3() {
+        const data = new FormData();
+        data.set('name', '丁');
+        data.set('sex', '男');
+
+        Array.from(FileInputs1.files, function (item, index) {
+          if ((index + 1) % 2) {
+            data.append('aaa', item);
+          } else {
+            data.append('bbb', item);
+          }
+        });
+        console.log(data)
+        // const res = await axios.post(`${origin}/bbb`, data)
+        const res = await axios.post('http://localhost:3245/ccc', data);
+        console.log(res);
+      }
+
+      UploadFileFields.onclick = fn3;
+
+      async function fn4() {
+        const data = new FormData();
+        data.set('name', '丁');
+        data.set('sex', '男');
+
+        Array.from(FileInputs2.files, function (item, index) {
+          if ((index + 1) % 2) {
+            data.append('aaa', item);
+          } else {
+            data.append('bbb', item);
+          }
+        });
+        console.log(data)
+        // const res = await axios.post(`${origin}/bbb`, data)
+        const res = await axios.post('http://localhost:3245/ddd', data);
+        console.log(res);
+      }
+
+      UploadAnyFiles.onclick = fn4;
+
+      async function fn5() {
+        const data = new FormData();
+        data.set('name', '丁');
+        data.set('sex', '男');
+
+        Array.from(FileInputs3.files, function (item, index) {
+          if ((index + 1) % 2) {
+            data.append('aaa', item);
+          } else {
+            data.append('bbb', item);
+          }
+        });
+        console.log(data)
+        // const res = await axios.post(`${origin}/bbb`, data)
+        const res = await axios.post('http://localhost:3245/eee', data);
+        console.log(res);
+      }
+
+      UploadSpecifyPath.onclick = fn5;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,241 @@
+{
+  "flag": true,
+  "code": "00000",
+  "message": "操作成功",
+  "data": [
+    {
+      "rankName": "凤翔工业园6#变",
+      "proportion": 1.22,
+      "lightCounts": 25,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "凤翔工业园4#变",
+      "proportion": 21.31,
+      "lightCounts": 438,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "凤翔工业园2#变",
+      "proportion": 19.65,
+      "lightCounts": 404,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "常州润源电力建设有限公司",
+      "proportion": 3.31,
+      "lightCounts": 68,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "人民检察院变电站",
+      "proportion": 4.45,
+      "lightCounts": 91.5,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "江苏省前黄高级中学",
+      "proportion": 0.2,
+      "lightCounts": 4.01,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "常州比太科技有限公司（金沙江光电产业园）",
+      "proportion": 1.26,
+      "lightCounts": 25.84,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "中汽研（瑷睿）",
+      "proportion": 0.31,
+      "lightCounts": 6.34,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "常州武南标准厂房投资发展有限公司（武南工业园）",
+      "proportion": 9.87,
+      "lightCounts": 202.88,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "江苏武进力拓企业孵化器有限公司（力拓）",
+      "proportion": 3.81,
+      "lightCounts": 78.23,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "斯泰必鲁斯（江苏）有限公司",
+      "proportion": 0.89,
+      "lightCounts": 18.3,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "加州科技港",
+      "proportion": 0,
+      "lightCounts": 0,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "横山桥卫生院",
+      "proportion": 0.19,
+      "lightCounts": 4,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "新惠大厦",
+      "proportion": 4.69,
+      "lightCounts": 96.5,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "青枫公园",
+      "proportion": 0,
+      "lightCounts": 0,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "紫荆公园",
+      "proportion": 0,
+      "lightCounts": 0,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "合全药业",
+      "proportion": 0,
+      "lightCounts": 0,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "常州市荆川公园管理处",
+      "proportion": 0,
+      "lightCounts": 0,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "（常州武南标准厂房投资建设有限公司）创新产业园",
+      "proportion": 0,
+      "lightCounts": 0,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "江苏省电力公司常州供电公司（营配基地）",
+      "proportion": 0,
+      "lightCounts": 0.1,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "滨湖物业（凤翔工业园5#变电站）",
+      "proportion": 0,
+      "lightCounts": 0,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "滨湖物业（凤翔工业园3#变电站）",
+      "proportion": 2.19,
+      "lightCounts": 44.99,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "金城大厦",
+      "proportion": 0,
+      "lightCounts": 0,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "龙虎教培中心",
+      "proportion": 3.33,
+      "lightCounts": 68.38,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "常州武南标准厂房投资发展有限公司（惠明机械）",
+      "proportion": 1.1,
+      "lightCounts": 22.64,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "滨湖物业（凤翔工业园1#变电站）",
+      "proportion": 0,
+      "lightCounts": 0,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "常州供电公司生产基地建设筹建办（线变运检用房）",
+      "proportion": 0.41,
+      "lightCounts": 8.38,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "新龙湖水街",
+      "proportion": 0.02,
+      "lightCounts": 0.33,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "高铁站屋北侧公园工程",
+      "proportion": 0.81,
+      "lightCounts": 16.58,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "辽河路地下通道变电站",
+      "proportion": 0.01,
+      "lightCounts": 0.12,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "常州市金地物业有限公司（建设大厦）",
+      "proportion": 2.25,
+      "lightCounts": 46.25,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "江苏省常州市武进综合保税区",
+      "proportion": 0,
+      "lightCounts": 0,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "南湖家苑",
+      "proportion": 0.37,
+      "lightCounts": 7.57,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "常州滨湖建设发展集团有限公司（电大便利中心）",
+      "proportion": 0.05,
+      "lightCounts": 1,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "常州滨湖建设发展集团有限公司（高新区管委会）",
+      "proportion": 0.05,
+      "lightCounts": 1.02,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "常州武南标准厂房投资发展有限公司（凤墅）",
+      "proportion": 15.18,
+      "lightCounts": 312.1,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "常州市武进高新区南区建设发展有限公司（低碳科普基地）",
+      "proportion": 0.04,
+      "lightCounts": 0.83,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "常州滨湖集团建设发展集团有限公司（湖岸木墅）",
+      "proportion": 3.06,
+      "lightCounts": 62.81,
+      "unit": "kWh"
+    },
+    {
+      "rankName": "国网检测中心",
+      "proportion": 0,
+      "lightCounts": 0.03,
+      "unit": "kWh"
+    }
+  ]
+}

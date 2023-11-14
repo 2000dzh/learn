@@ -1,4 +1,4 @@
-function miniDebounce(func, wait, options) {
+function miniDebounce (func, wait, options) {
   let leading = false
   let trailing = true
   let timeoutId
@@ -9,7 +9,7 @@ function miniDebounce(func, wait, options) {
     trailing = Object.hasOwn(options, 'trailing') ? !!options.trailing : trailing
   }
 
-  function debounce(...args) {
+  function debounce (...args) {
     lastThis = this
     if (leading && !timeoutId) {
       const context = lastThis
@@ -28,14 +28,11 @@ function miniDebounce(func, wait, options) {
     }, wait)
   }
 
-  arr1.forEach(item => {
-    if(item.name && item.age) {
-      //
-    }
-  })
+
 
   return debounce
 }
+
 
 
 

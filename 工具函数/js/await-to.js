@@ -22,17 +22,17 @@ str.replace(/id=".*?"/g, "")
 decodeURI('').replace(/id=".*?"/g, "")
 
 
-function generativeText(arr, start) {
+function generativeText (arr, start) {
   let entry = ''
   for (let i = 0; i < arr.length; i++) {
     const item = arr[i];
-    if(item.children && item.children.length) {
+    if (item.children && item.children.length) {
       const first = item.children.findIndex(item => item.isChoose)
-      if(first !== -1) {
-        entry += item.children.reduce((sum,obj,index) => {
+      if (first !== -1) {
+        entry += item.children.reduce((sum, obj, index) => {
           obj.isChoose && (sum += `${first === index ? '' : ','}${obj.day}`)
           return sum
-        }, item.label ? `${entry === '' ? '' : '日'}第${i +1}月` : ' ')
+        }, item.label ? `${entry === '' ? '' : '日'}第${i + 1}月` : ' ')
       }
     }
   }
@@ -41,7 +41,7 @@ function generativeText(arr, start) {
 }
 
 // 优化后
-function generativeText(arr, start) {
+function generativeText (arr, start) {
   let entry = '';
   for (let i = 0, len = arr.length; i < len; i++) {
     const item = arr[i];
@@ -60,3 +60,5 @@ function generativeText(arr, start) {
   }
   return `${start}${entry}`;
 }
+
+

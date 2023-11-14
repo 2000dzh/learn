@@ -31,7 +31,7 @@ async function asyncPool(tasks = [], items = 2) {
 //   console.log('任务全部执行完毕')
 // })
 
-// 优化版本
+
 async function asyncPool1(tasks, items = 2) {
   const taskPool = new Set()
   const results = []
@@ -44,7 +44,7 @@ async function asyncPool1(tasks, items = 2) {
     // 将新任务添加到任务池
     const promise = task()
     // 如果 tasks 包含同步任务可以这么写
-    // taskPool.add(Promise.reject(promise));
+    // taskPool.add(Promise.resolve(promise));
     taskPool.add(promise)
 
     // 等待任务完成后，从任务池中移除

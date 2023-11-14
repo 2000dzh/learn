@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>技巧二：渐变可以是从一种颜色直接到另外一种颜色</title>
+    <style>
+      .main {
+        width: 200px;
+        margin: auto;
+      }
+      .box1 {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ccc;
+        /* 这里设置前50%为白色,后50%为粉色 */
+        background: linear-gradient(#fff 0%, #fff 50%, pink 50%, pink 100%);
+        margin-bottom: 20px;
+      }
+      .box2 {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ccc;
+        background: linear-gradient(45deg, pink 0%, pink 50%, transparent 50%, transparent 100%);
+        margin-bottom: 20px;
+      }
+      /* 渐变是可以叠加多层的 */
+      .box3 {
+        width: 200px;
+        height: 120px;
+        background: linear-gradient(135deg, transparent 15px, pink 0), linear-gradient(-135deg, transparent 15px, blue 0),
+          linear-gradient(-45deg, transparent 15px, red 0), linear-gradient(45deg, transparent 15px, #000 0);
+        background-size: 50% 50%;
+        background-position: top left, top right, bottom right, bottom left;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+      /* 利用 repeating-linear-gradient 节省代码 */
+      /* repeating-linear-gradient 做了什么事情呢？其实是按照每 11px 安排一段 #f06a0e，每 9px 安排一段 transparent */
+      /* 分析一下代码 repeating-linear-gradient 只是在根据长度规律，不断重复一个片段 */
+      .box4 {
+        width: 200px;
+        height: 200px;
+        background: repeating-linear-gradient(45deg, #f06a0e, #f06a0e 11px, transparent 11px, transparent 20px);
+        margin-bottom: 20px;
+      }
+      .box5 {
+        width: 200px;
+        height: 200px;
+        background: repeating-linear-gradient(#f06a0e, #f06a0e 11px, transparent 11px, transparent 20px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="box1"></div>
+      <div class="box2"></div>
+      <div class="box3"></div>
+      <div class="box4"></div>
+      <div class="box5"></div>
+    </div>
+  </body>
+</html>

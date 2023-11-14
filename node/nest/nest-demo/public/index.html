@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/axios@0.24.0/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/qs@6.10.2/dist/qs.js"></script>
+  </head>
+  <body>
+    <h1>hello</h1>
+    <input id="fileInput" type="file" multiple />
+
+    <button id="cooBtn">测试cookie是否携带</button>
+
+    <script>
+      async function urlParam() {
+        const result = await axios.get('/person/666');
+        console.log(result);
+      }
+      // urlParam()
+
+      async function query() {
+        const result = await axios.get('/person/find', {
+          params: {
+            name: 'dzh',
+            age: 22,
+          },
+        });
+        console.log(result);
+      }
+      // query();
+
+      async function formUrlEncoded() {
+        const result = await axios.post(
+          '/person',
+          Qs.stringify({
+            name: 'dzh',
+            age: 20,
+          }),
+          {
+            headers: {
+              'content-type': 'application/x-www-form-urlencoded',
+            },
+          },
+        );
+        console.log(result);
+      }
+      // formUrlEncoded()
+
+      async function json() {
+        const result = await axios.post(
+          '/person/getData',
+          Qs.stringify({
+            name: 'dzh',
+            age: 20,
+          }),
+        );
+        console.log(result);
+      }
+      // json()
+
+      const fileInput = document.getElementById('fileInput');
+      async function formData() {
+        const data = new FormData();
+        data.set('name', 'dzh');
+        data.set('age', 22);
+        data.set('file1', fileInput.files[0]);
+        data.set('file2', fileInput.files[1]);
+
+        const result = await axios.post('/person/file', data, {
+          'content-type': 'multipart/form-data',
+        });
+
+        console.log(result);
+      }
+
+      fileInput.onchange = formData;
+
+      // 设置 cookie
+      async function setCookie() {
+        const result = await axios.get('/session');
+      }
+      // setCookie();
+
+      const CooBtn = document.getElementById('cooBtn');
+      CooBtn.addEventListener('click', async () => {
+        await axios.get('/ip');
+      });
+    </script>
+   
+  </body>
+</html>

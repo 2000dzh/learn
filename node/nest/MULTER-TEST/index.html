@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="file" id="fileInput" />
+    <button id="singleFile">上传单个文件</button>
+
+    <input type="file" id="fileInputs" multiple />
+    <button id="multipleFiles">上传多个文件</button>
+
+    <script src="https://unpkg.com/axios@0.24.0/dist/axios.min.js"></script>
+    <script>
+      const FileInput = document.getElementById('fileInput')
+      const SingleFile = document.getElementById('singleFile')
+      const FileInputs = document.getElementById('fileInputs')
+      const multipleFiles = document.getElementById('multipleFiles')
+
+      async function fn1() {
+        const data = new FormData()
+        data.set('name', '丁')
+        data.set('sex', '男')
+        data.set('aaa', FileInput.files[0])
+
+        const res = await axios.post('http://localhost:3333/aaa', data)
+        console.log(res)
+      }
+
+      SingleFile.onclick = fn1
+
+      async function fn2() {
+        const data = new FormData()
+        data.set('name', '丁')
+        data.set('sex', '男')
+
+        Array.from(FileInputs.files, function (item) {
+          data.append('bbb', item)
+        })
+        const res = await axios.post('http://localhost:3333/bbb', data)
+        console.log(res)
+      }
+
+      multipleFiles.onclick = fn2
+    </script>
+  </body>
+</html>

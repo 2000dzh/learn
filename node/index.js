@@ -5,8 +5,17 @@
 // npm install -g @nestjs/cli
 // nest new 项目名
 
+// 建个 user 的 CRUD 模块
+// npx nest g resource user
+// --no-spec 不生成测试文件
 
 // 生成一个 pipe(管道)
 // npx nest g pipe 文件名 --no-spec --flat
 // --no-spec 不生成测试文件夹
 // --flat 不会生成文件夹
+
+// 生成一个 guard(守卫)
+// npx nest g guard 文件名 --no-spec --flat
+
+// 生成一个 redis 模块
+// npx nest g module redis

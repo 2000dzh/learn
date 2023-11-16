@@ -8,7 +8,7 @@ import { ModuleRef } from '@nestjs/core';
 import { PersonService } from './person.service';
 import { PersonController } from './person.controller';
 
-// 全局装饰器,其他模块不需要引入可以直接使用
+// 全局装饰器,其他模块不需要引入可以直接使用(全局模块应该仅注册一次，通常由根模块或核心模块完成。)
 // @Global()
 @Module({
   controllers: [PersonController],

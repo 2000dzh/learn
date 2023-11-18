@@ -1,9 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectEntityManager } from '@nestjs/typeorm';
-import { EntityManager } from 'typeorm';
+import { EntityManager, In } from 'typeorm';
 import { User } from './entities/user.entity';
 import { Role } from './entities/role.entity';
 import { Permission } from './entities/permission.entity';
+import { UserLogin } from './dto/user.login.dto';
 
 @Injectable()
 export class UserService {
@@ -84,5 +85,38 @@ export class UserService {
     await this.entityManager.save(Role, [role1, role2]);
 
     await this.entityManager.save(User, [user1, user2]);
+  }
+
+  async login(loginUserDto: UserLogin) {
+    const { username, password } = loginUserDto || {};
+    const user = await this.entityManager.findOne(User, {
+      where: {
+        username,
+      },
+      relations: {
+        roles: true,
+      },
+    });
+
+    if (!user) {
+      throw new HttpException('用户不存在', HttpStatus.ACCEPTED);
+    }
+
+    if (user.password !== password) {
+      throw new HttpException('密码错误', HttpStatus.ACCEPTED);
+    }
+
+    return user;
+  }
+
+  async findRolesByIds(roleIds: Array<number>) {
+    return this.entityManager.find(Role, {
+      where: {
+        id: In(roleIds),
+      },
+      relations: {
+        permissions: true,
+      },
+    });
   }
 }

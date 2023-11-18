@@ -1,10 +1,14 @@
-import { Body, Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Inject, Post } from '@nestjs/common';
 import { UserService } from './user.service';
 import { UserLogin } from './dto/user.login.dto';
+import { JwtService } from '@nestjs/jwt';
 
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
+
+  @Inject(JwtService)
+  private jwtService: JwtService;
 
   @Get()
   findAll() {
@@ -17,9 +21,21 @@ export class UserController {
     return 'done';
   }
 
-  @Get('login')
-  login(@Body() loginUser: UserLogin) {
+  @Post('login')
+  async login(@Body() loginUser: UserLogin) {
     console.log(loginUser);
-    return 'success';
+    const user = await this.userService.login(loginUser);
+    console.log(user);
+
+    const token = this.jwtService.sign({
+      user: {
+        username: user.username,
+        roles: user.roles,
+      },
+    });
+
+    return {
+      token,
+    };
   }
 }

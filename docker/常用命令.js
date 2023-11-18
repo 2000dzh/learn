@@ -13,6 +13,8 @@
 // --name xxx-container: 这个参数用于为容器指定一个名称。在这个例子中，容器的名称是 xxx-container。名称可以根据你的需求进行修改。
 // xxx-image: 这个参数用于指定要基于哪个镜像创建容器。在这个例子中，镜像的名称是 xxx-image。镜像名称可以根据你的需求进行修改
 
+// docker run -d -p 3308:3306 -v D:\ding\mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin123 --name mysql-container mysql
+
 // docker 是分层存储的，dockerfile 里的每一行指令是一层，会做缓存。
 // 是否可以这样理解 COPY 到 RUN 是不是一层,也就是只要 COPY的文件变了就会执行 RUN 的操作
 

@@ -6,6 +6,10 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   // 全局注入
   app.useGlobalInterceptors(new AppInterceptor());
+
+  // 添加全局前缀
+  app.setGlobalPrefix('/api');
+
   await app.listen(3000);
 }
 bootstrap();

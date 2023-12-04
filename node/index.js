@@ -17,5 +17,8 @@
 // 生成一个 guard(守卫)
 // npx nest g guard 文件名 --no-spec --flat
 
-// 生成一个 redis 模块
-// npx nest g module redis
+// 生成一个 iotc 模块
+// npx nest g module iotc (一个 iotc 文件夹和一个 iotc.module.ts 文件)
+
+// 生成一个 iotc 服务
+// npx nest g service iotc (一个 iotc 文件夹和一个 iotc.service.ts 文件)

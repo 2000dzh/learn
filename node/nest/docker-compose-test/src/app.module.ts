@@ -9,8 +9,9 @@ import { createClient } from 'redis';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: '172.20.10.3',
-      port: 3308,
+      // host: '172.20.10.3',
+      host: 'mysql-container',
+      port: 3306,
       username: 'root',
       password: 'admin123',
       database: 'aaa',
@@ -32,7 +33,8 @@ import { createClient } from 'redis';
       async useFactory() {
         const client = createClient({
           socket: {
-            host: '172.20.10.3',
+            // host: '172.20.10.3',
+            host: 'redis-container',
             port: 6379,
           },
         });

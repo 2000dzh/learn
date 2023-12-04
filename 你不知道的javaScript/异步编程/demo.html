@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="start">开始</button>
+    <button id="startInteraction">开始交互</button>
+    <script src="https://unpkg.com/axios@1.5.1/dist/axios.min.js"></script>
+    <script>
+
+      // js是一门单线程的语言,因为它是在浏览器的渲染主线程上运行的,渲染主线程只有一个
+
+      // 渲染主线程
+      // 微队列  优先级最高 1
+      // 交互队列  2
+      // 网络队列  3
+      // 延迟队列  4
+
+      // 任务是不存在优先级的,不同的任务交给不同的线程处理,处理完成后根据任务类型不同加入不同的消息队列,然后等待渲染主线程空闲了,再根据队列的优先级清空队列
+   
+
+      const start = document.getElementById('start')
+      const startInteraction = document.getElementById('startInteraction')
+
+      function delay(time) {
+        const startTime = Date.now()
+        while (Date.now() - startTime < time) {}
+      }
+
+      function addDelayQueue() {
+        console.log('添加延迟任务')
+        setTimeout(() => {
+          console.log('延迟队列任务执行')
+        }, 200)
+        delay(2000)
+      }
+
+      function addNetworkQueue() {
+        console.log('添加网络队列')
+        axios.get('http://localhost:3001/api').then(res => {
+          console.log('网络队列任务执行')
+        })
+        delay(2000)
+      }
+
+      function addInteractiveQueue() {
+        console.log('添加交互队列')
+        startInteraction.onclick = () => {
+          console.log('交互队列任务执行')
+        }
+        delay(2000)
+      }
+
+      start.onclick = () => {
+        addNetworkQueue()
+        addDelayQueue()
+        addInteractiveQueue()
+      }
+    </script>
+  </body>
+</html>

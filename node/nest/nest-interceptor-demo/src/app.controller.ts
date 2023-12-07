@@ -12,7 +12,8 @@ export class AppController {
   @Get()
   @UseInterceptors(MapTestInterceptor)
   async getHello() {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    // await new Promise((resolve) => setTimeout(resolve, 2000));
+    console.log(3000);
     return this.appService.getHello();
   }
 

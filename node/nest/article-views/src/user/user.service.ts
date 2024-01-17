@@ -1,26 +1,29 @@
-import { Injectable } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { BadRequestException, Injectable } from '@nestjs/common';
+import { InjectEntityManager } from '@nestjs/typeorm';
+import { EntityManager } from 'typeorm';
+import { User } from './entities/user.entity';
+import { LoginUserDto } from './dto/login-user.dto';
 
 @Injectable()
 export class UserService {
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
-  }
+  @InjectEntityManager()
+  private entityManager: EntityManager;
 
-  findAll() {
-    return `This action returns all user`;
-  }
+  async login(loginUser: LoginUserDto) {
+    const user = await this.entityManager.findOne(User, {
+      where: {
+        username: loginUser.username,
+      },
+    });
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
-  }
+    if (!user) {
+      throw new BadRequestException('用户不存在');
+    }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
-  }
+    if (user.password !== loginUser.password) {
+      throw new BadRequestException('密码错误');
+    }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+    return user;
   }
 }

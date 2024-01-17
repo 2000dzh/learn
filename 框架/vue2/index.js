@@ -31,17 +31,21 @@ function initMethods (vm, methods) {
     if ('开发环境') {
       // 不是一个函数
       if (typeof methods[key] !== 'function') {
-        ; ('警告')
+        console.log('警告')
       }
       // methods 的方法不能和 props 的属性重名
       if (props && Object.prototype.hasOwnProperty(props, key)) {
-        ; ('警告')
+        console.log('警告')
       }
       if ('不能和vue内部的方法名重名') {
-        ; ('警告')
+        console.log('警告')
       }
     }
     vm[key] =
       typeof methods[key] !== 'function' ? function noop (a, b, c) { } : bind(vm, methods[key])
   }
 }
+
+// 在Vue中存在三种Watcher，分别是Render Watcher（渲染Watcher）、Computed Watcher（Computed）和User Watcher
+// 一个组件只有一个渲染Watch
+

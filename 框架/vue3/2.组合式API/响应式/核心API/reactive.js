@@ -33,9 +33,16 @@ let { count } = state
 // 不会影响原始的 state
 count++
 // 参数 count 同样和 state.count 失去了响应性连接
-function callSomeFunction(count) {
-	// 不会影响 state
-	count++
+function callSomeFunction (count) {
+  // 不会影响 state
+  count++
 }
 callSomeFunction(state.count)
 // reactive() 的种种限制归根结底是因为 JavaScript 没有可以作用于所有值类型的 “引用” 机制
+
+
+function reactive (obj) {
+  return new Proxy(obj)
+}
+
+let obj = reactive({ a: 2 })

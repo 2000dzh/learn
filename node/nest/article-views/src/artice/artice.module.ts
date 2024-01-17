@@ -4,6 +4,6 @@ import { ArticeController } from './artice.controller';
 
 @Module({
   controllers: [ArticeController],
-  providers: [ArticeService]
+  providers: [ArticeService],
 })
 export class ArticeModule {}

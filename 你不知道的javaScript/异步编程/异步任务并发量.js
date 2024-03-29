@@ -10,27 +10,6 @@ function sleep(time = 1000, name) {
 
 const tasks = [() => sleep(0, '吃饭'), () => sleep(0, '打游戏'), () => sleep(1000, '写代码'), () => sleep(8000, '做运动')]
 
-async function asyncPool(tasks = [], items = 2) {
-  const taskPool = new Set()
-  for (const task of tasks) {
-    const promise = task()
-    taskPool.add(promise)
-    promise.then(() => {
-      taskPool.delete(promise)
-    })
-    if (taskPool.size >= items) {
-      await Promise.race(taskPool)
-    }
-  }
-  console.log(taskPool)
-  return Promise.allSettled(taskPool)
-}
-
-// asyncPool1(tasks).then((res) => {
-//   console.log(res)
-//   console.log('任务全部执行完毕')
-// })
-
 
 async function asyncPool1(tasks, items = 2) {
   const taskPool = new Set()
@@ -63,6 +42,29 @@ async function asyncPool1(tasks, items = 2) {
   await Promise.allSettled(taskPool)
   return results
 }
+
+
+async function asyncPool(tasks = [], items = 2) {
+  const taskPool = new Set()
+  for (const task of tasks) {
+    const promise = task()
+    taskPool.add(promise)
+    promise.then(() => {
+      taskPool.delete(promise)
+    })
+    if (taskPool.size >= items) {
+      await Promise.race(taskPool)
+    }
+  }
+  console.log(taskPool)
+  return Promise.allSettled(taskPool)
+}
+
+// asyncPool1(tasks).then((res) => {
+//   console.log(res)
+//   console.log('任务全部执行完毕')
+// })
+
 
 // asyncPool1(tasks).then((res) => {
 //   console.log(res)

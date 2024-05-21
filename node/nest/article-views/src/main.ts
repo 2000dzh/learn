@@ -5,8 +5,8 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
- // 启用跨域支持
- app.enableCors();
+  // 启用跨域支持
+  app.enableCors();
   app.useStaticAssets('public');
   app.use(
     session({

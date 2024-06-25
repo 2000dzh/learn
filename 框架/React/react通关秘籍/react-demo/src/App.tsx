@@ -3,7 +3,10 @@
 // import ErrorBoundary from '@/components/suspense-error-boundary/ErrorBoundary'
 // import IconDemo from '@/components/Icon/demo'
 // import SpaceDemo from '@/components/space/demo'
-import PortalDemo from './components/portal/demo'
+// import PortalDemo from './components/portal/demo'
+import WatermarkDemo from './components/watermark/demo'
+
+// const pages = import.meta.glob('@/components/**/*index.tsx')
 
 function App() {
   return (
@@ -13,7 +16,8 @@ function App() {
       {/* <ErrorBoundary /> */}
       {/* <IconDemo /> */}
       {/* <SpaceDemo /> */}
-      <PortalDemo />
+      {/* <PortalDemo /> */}
+      <WatermarkDemo />
     </>
   )
 }

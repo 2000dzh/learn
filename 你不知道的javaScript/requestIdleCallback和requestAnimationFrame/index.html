@@ -7,8 +7,14 @@
   </head>
   <body>
     <script>
+      // 记录上一帧的时间戳
+      let lastFrame = Date.now()
       function animate(...arg) {
         console.log('1', arg)
+        // 计算帧间隔时间
+        const delta = Date.now() - lastFrame
+        lastFrame = Date.now()
+        console.log(delta)
         // 更新UI代码
         requestAnimationFrame(animate)
       }

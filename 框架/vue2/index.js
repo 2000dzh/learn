@@ -49,3 +49,6 @@ function initMethods (vm, methods) {
 // 在Vue中存在三种Watcher，分别是Render Watcher（渲染Watcher）、Computed Watcher（Computed）和User Watcher
 // 一个组件只有一个渲染Watch
 
+
+// Vue2 针对于数组从始至终都没有进行 defineReactive，只不过给它增加了一个 observer 对象罢了，当遇到一个 value 是数组时 Vue2 会进行遍历针对于每个元素执行 defineReactive 操作，唯独数组本身没有
+

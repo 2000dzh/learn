@@ -6,9 +6,9 @@ function sleep () {
   })
 }
 
-function request (promiseTask, maxCount = 3) {
+function retryRequest (promiseTask, maxCount = 3) {
   return promiseTask().catch(() => maxCount <= 0 ? Promise.reject('超出最大请求次数') : request(promiseTask, maxCount - 1))
 }
 
 
-request(sleep, 6).then(console.log).catch(console.log)
+retryRequest(sleep, 6).then(console.log).catch(console.log)

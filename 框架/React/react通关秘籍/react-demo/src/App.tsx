@@ -15,7 +15,7 @@ import { Select } from 'antd'
 //
 
 function App() {
-  const [index, setIndex] = useState(9)
+  const [index, setIndex] = useState(10)
 
   const comOptions = [
     {
@@ -58,6 +58,10 @@ function App() {
       value: 9,
       label: 'hookDemo',
     },
+    {
+      value: 10,
+      label: 'tailwindDemo',
+    },
   ]
 
   function Demo(i: number) {
@@ -93,6 +97,9 @@ function App() {
     } else if (i === 9) {
       const HookDemo = React.lazy(() => import('./hookDemo'))
       return <HookDemo />
+    } else if (i === 10) {
+      const TailwindDemo = React.lazy(() => import('./tailwindDemo/index'))
+      return <TailwindDemo />
     }
   }
 

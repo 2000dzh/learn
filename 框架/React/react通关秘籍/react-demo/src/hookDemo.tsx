@@ -1,7 +1,10 @@
 // import useMountedState from '@/hooks/useMountedState'
 import useSize from '@/hooks/useSize'
 import useHover from '@/hooks/useHover'
+// import useTimeout from '@/hooks/useTimeout'
+import useWhyDidYouUpdate from '@/hooks/useWhyDidYouUpdate'
 import { useEffect, useRef, useState } from 'react'
+import { Button } from 'antd'
 
 const HookDemo = () => {
   // const isMounted = useMountedState()
@@ -24,6 +27,13 @@ const HookDemo = () => {
     },
   })
 
+  const [count, setCount] = useState(1)
+  useWhyDidYouUpdate('hookDemo', { count })
+
+  // useTimeout(() => {
+  //   console.log('定时')
+  // }, 3000)
+
   return (
     <div
       style={{
@@ -43,6 +53,10 @@ const HookDemo = () => {
         height: {size?.height}
         {isEnter ? 'hover' : 'leave'}
       </div>
+
+      <div>{count}</div>
+      <Button onClick={() => setCount(count + 1)}>点击count+1</Button>
+      <Button onClick={() => setCount(count - 1)}>点击count+1</Button>
     </div>
   )
 }

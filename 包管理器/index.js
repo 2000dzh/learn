@@ -9,3 +9,11 @@
 
 // 查询全局安装的包的路径
 // npm root -g
+
+// npkill:一键卸载无用Node.js包的利器
+
+// 快速删除 node-modules
+// npx rimraf node_modules
+
+// 创建限制项目node版本文件
+// echo "v18.17.0" > .nvmrc

@@ -95,31 +95,42 @@
 	<script>
 		let father1 = document.getElementById('father1')
 		// 元素没有滚动条，且没有border-top, border-bottom时，三者相等
-		console.log(
-			father1.scrollHeight,
-			father1.clientHeight,
-			father1.offsetHeight
-		) // 150,150, 150
+
+    // 150,150, 150
+    console.log('元素没有滚动条，且没有border-top, border-bottom时，三者相等',{
+      scrollHeight: father1.scrollHeight,
+      clientHeight: father1.clientHeight,
+      offsetHeight: father1.offsetHeight
+    })
+
 		let father2 = document.getElementById('father2')
 		// 元素没有垂直滚动条时，scrollHeight，clientHeight相等
-		console.log(
-			father2.scrollHeight,
-			father2.clientHeight,
-			father2.offsetHeight
-		) // 133,133, 150
+
+    // 133,133, 150
+    console.log('元素没有垂直滚动条时，scrollHeight，clientHeight相等',{
+      scrollHeight: father2.scrollHeight,
+      clientHeight: father2.clientHeight,
+      offsetHeight: father2.offsetHeight
+    })
+
 		let father3 = document.getElementById('father3')
 		// 元素有垂直滚动条，且没有border-top, border-bottom时，clientHeight和offsetHeight相等
-		console.log(
-			father3.scrollHeight,
-			father3.clientHeight,
-			father3.offsetHeight
-		) // 270,150,150
+
+    // 270,150,150
+    console.log('元素有垂直滚动条，且没有border-top, border-bottom时，clientHeight和offsetHeight相等',{
+      scrollHeight: father3.scrollHeight,
+      clientHeight: father3.clientHeight,
+      offsetHeight: father3.offsetHeight
+    })
+
 		let father4 = document.getElementById('father4')
 		// 元素有垂直滚动条，且有border-top或 border-bottom时，三者不相等
-		console.log(
-			father4.scrollHeight,
-			father4.clientHeight,
-			father4.offsetHeight
-		) // 270,150,150
+
+    // 270,150,150
+    console.log('元素有垂直滚动条，且有border-top或 border-bottom时，三者不相等',{
+      scrollHeight: father4.scrollHeight,
+      clientHeight: father4.clientHeight,
+      offsetHeight: father4.offsetHeight
+    })
 	</script>
 </html>​

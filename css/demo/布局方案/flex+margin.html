@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        text-align: center;
+      }
+    </style>
+
+    <style>
+      .box {
+        width: 200px;
+        height: 100px;
+        border: 2px solid #ccc;
+        display: flex; /* 启用 Flex 布局 */
+        margin: 100px auto;
+      }
+
+      .item1 {
+        background: red;
+        width: 50px;
+        height: 50px;
+        margin: auto; /* 自动分配外边距 */
+      }
+    </style>
+
+    <style>
+      .container {
+        width: 500px;
+        background: #eee;
+        margin: 50px auto;
+        padding: 10px;
+        display: flex;
+      }
+
+      .item2 {
+        width: 50px;
+        height: 50px;
+        border: 1px solid #333;
+        box-sizing: border-box;
+      }
+
+      .item2:nth-child(odd) {
+        background: #046f4e;
+      }
+
+      .item2:nth-child(even) {
+        background: #d53b3b;
+      }
+
+      .c2 .item2:nth-child(2) {
+        margin: 0 0 0 auto; /* 第二个 item 右对齐 */
+      }
+
+      .c2 .item2:nth-child(4) {
+        margin: 0 auto 0 0; /* 第四个 item 左对齐 */
+      }
+    </style>
+
+    <style>
+      .container {
+        width: 500px;
+        background: #eee;
+        margin: 50px auto;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .item3 {
+        width: 50px;
+        height: 50px;
+        border: 1px solid #333;
+        box-sizing: border-box;
+      }
+
+      .item3:nth-child(odd) {
+        background: #046f4e;
+      }
+
+      .item3:nth-child(even) {
+        background: #d53b3b;
+      }
+
+      .c3 .item3 {
+        --n: 5; /* 每行显示的子项数量 */
+        --item-width: 50px; /* 子项宽度 */
+        --space: calc(100% / var(--n) - var(--item-width)); /* 计算子项之间的间距 */
+        --m: calc(var(--space) / 2); /* 左右间距的一半 */
+        margin: 10px var(--m); /* 动态计算左右的间距 */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>子元素水平垂直居中</h1>
+    <div class="box">
+      <div class="item1"></div>
+    </div>
+
+    <h1>子元素部分集中</h1>
+    <div class="container c2">
+      <div class="item2"></div>
+      <div class="item2"></div>
+      <div class="item2"></div>
+      <div class="item2"></div>
+      <div class="item2"></div>
+      <div class="item2"></div>
+    </div>
+
+    <h1>等宽子元素的均匀分布</h1>
+    <div class="container c3">
+      <div class="item3"></div>
+      <div class="item3"></div>
+      <div class="item3"></div>
+      <div class="item3"></div>
+      <div class="item3"></div>
+      <div class="item3"></div>
+      <div class="item3"></div>
+      <div class="item3"></div>
+      <div class="item3"></div>
+      <div class="item3"></div>
+      <div class="item3"></div>
+      <div class="item3"></div>
+    </div>
+
+    <script>
+      // 参考
+      // https://juejin.cn/post/7413222778855964706#heading-11
+    </script>
+  </body>
+</html>

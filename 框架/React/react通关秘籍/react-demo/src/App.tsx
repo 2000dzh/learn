@@ -15,7 +15,7 @@ import { Select } from 'antd'
 //
 
 function App() {
-  const [index, setIndex] = useState(10)
+  const [index, setIndex] = useState(12)
 
   const comOptions = [
     {
@@ -62,6 +62,14 @@ function App() {
       value: 10,
       label: 'tailwindDemo',
     },
+    {
+      value: 11,
+      label: 'on-boarding',
+    },
+    {
+      value: 12,
+      label: 'd-upload',
+    },
   ]
 
   function Demo(i: number) {
@@ -100,6 +108,12 @@ function App() {
     } else if (i === 10) {
       const TailwindDemo = React.lazy(() => import('./tailwindDemo/index'))
       return <TailwindDemo />
+    } else if (i === 11) {
+      const OnBoardingDemo = React.lazy(() => import('@/components/on-boarding/demo'))
+      return <OnBoardingDemo />
+    } else if (i === 12) {
+      const Dupload = React.lazy(() => import(`@/components/d-upload/demo`))
+      return <Dupload />
     }
   }
 

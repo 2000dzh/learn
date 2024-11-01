@@ -15,4 +15,12 @@ export default defineConfig({
       '@': resolve('src'),
     },
   },
+  server: {
+    proxy: {
+      '/upload': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      },
+    },
+  },
 })

@@ -1,5 +1,6 @@
 import React, { Suspense, useState } from 'react'
-import { Select } from 'antd'
+// import { Select } from 'antd'
+import Demo11 from './demo-11-21.tsx'
 
 // import CalendarDemo from '@/components/Calendar/demo'
 // import LazyPage from '@/components/suspense-error-boundary/suspense'
@@ -15,7 +16,7 @@ import { Select } from 'antd'
 //
 
 function App() {
-  const [index, setIndex] = useState(12)
+  const [index, setIndex] = useState(15)
 
   const comOptions = [
     {
@@ -70,6 +71,18 @@ function App() {
       value: 12,
       label: 'd-upload',
     },
+    {
+      value: 13,
+      label: '数据的不可变性',
+    },
+    {
+      value: 14,
+      label: 'react-router',
+    },
+    {
+      value: 15,
+      label: 'react-playground',
+    },
   ]
 
   function Demo(i: number) {
@@ -114,6 +127,15 @@ function App() {
     } else if (i === 12) {
       const Dupload = React.lazy(() => import(`@/components/d-upload/demo`))
       return <Dupload />
+    } else if (i === 13) {
+      const ReadOnlyDemo = React.lazy(() => import(`@/components/read-only-demo/demo`))
+      return <ReadOnlyDemo />
+    } else if (i === 14) {
+      const ReactRouter = React.lazy(() => import('./components/react-router/demo'))
+      return <ReactRouter />
+    } else if (i === 15) {
+      const ReactPlayground = React.lazy(() => import('./components/react-playground/demo'))
+      return <ReactPlayground />
     }
   }
 
@@ -123,13 +145,17 @@ function App() {
 
   return (
     <>
-      <Select
+      {/* <Select
         defaultValue={index}
         style={{ width: '100%' }}
         options={comOptions}
         onChange={handleChange}
       />
-      <Suspense>{Demo(index)}</Suspense>
+      <Suspense>{Demo(index)}</Suspense> */}
+      <Demo11>
+        <div>1</div>
+        <div>2</div>
+      </Demo11>
     </>
   )
 }

@@ -86,7 +86,13 @@ const ConsumerDemo2 = () => {
 const ConsumerDemo3 = () => {
   return (
     <>
-      <ThemeConsumer>{(contextValue) => <div style={{ color: contextValue.color, background: contextValue.background }}>消费3</div>}</ThemeConsumer>
+      <ThemeConsumer>
+        {(contextValue) => (
+          <div style={{ color: contextValue.color, background: contextValue.background }}>
+            消费3
+          </div>
+        )}
+      </ThemeConsumer>
     </>
   )
 }

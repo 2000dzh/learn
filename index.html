@@ -88,5 +88,17 @@
       console.log(time(Date.now(), Date.now() + 1000 * 60 * 60 * 24 + 1000 * 1))
     </script>
 
+    <script>
+      function handleMove(e) {
+        setPosition({ x: e.clientX, y: e.clientY })
+      }
+      onMounted(() => {
+        window.addEventListener('pointermove', handleMove)
+      })
+
+      卸载钩子(() => {
+        window.removeEventListener('pointermove', handleMove)
+      })
+    </script>
   </body>
 </html>

@@ -58,6 +58,16 @@
       setTimeout(() => {
         App.className = ''
       }, 2000) // 动画持续时间改为2秒，与动画持续时间一致
+
+      if (window.top === window) {
+        window.addEventListener('message', (event) => {
+          if (event.data.type === 'iframeReady') {
+           console.log('1')
+          }
+        })
+      } else {
+        window.top.postMessage({ type: 'iframeReady' }, '*')
+      }
     </script>
   </body>
 </html>

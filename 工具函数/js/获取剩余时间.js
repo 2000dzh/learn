@@ -17,4 +17,5 @@ function time (startTime, endTime) {
   return back
 }
 
+// 1天0小时0分钟1秒
 console.log(time(Date.now(), Date.now() + 1000 * 60 * 60 * 24 + 1000 * 1))

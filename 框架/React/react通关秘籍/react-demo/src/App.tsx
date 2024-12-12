@@ -152,10 +152,7 @@ function App() {
         onChange={handleChange}
       />
       <Suspense>{Demo(index)}</Suspense> */}
-      <Demo11>
-        <div>1</div>
-        <div>2</div>
-      </Demo11>
+      <Demo11></Demo11>
     </>
   )
 }

@@ -1,5 +1,5 @@
 /**
- * @description: 24点(30分钟一个点)
+ * @description: 24点(1小时一个点)
  * @param {Number} timeStamp 时间戳
  * @returns {Array} YYYY-MM-DD 01:00 YYYY-MM-DD 02:00 YYYY-MM-DD 03:00 ........
  */

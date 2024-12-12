@@ -29,8 +29,3 @@
 //pnpm store prune
 
 
-// pnpm + monorepo
-// 全局依赖(供全局使用)
-// pnpm i element-plus axios  -w
-
-

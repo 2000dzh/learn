@@ -8,9 +8,6 @@
 // [...document.all].filter(e => e.__vue__)
 // vue2 可找到组件最外层元素,通过 __vue__ 属性访问组件对象信息
 
-// [...document.all].filter(e => e._vnode)
-// vue3 可通过 _vnode
-
 // initMethods 初始化 methods 流程
 function initMethods (vm, methods) {
   const props = vm.$optios.props

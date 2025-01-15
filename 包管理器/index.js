@@ -10,6 +10,20 @@
 // 查询全局安装的包的路径
 // npm root -g
 
+// 查看全局已安装的包
+// 会把包的依赖也列出来
+// npm ls -g
+// 加上层级控制显示深度,这样就只会显示安装的包了
+// npm ls -g --depth 0
+
+// 查看项目中已安装的包
+// npm ls
+// npm ls --depth 0
+// 只显示生产环境的包
+// npm ls --depth 0 --prod
+// 只显示开发环境的包
+// npm ls --depth 0 --dev
+
 // npkill:一键卸载无用Node.js包的利器
 
 // 快速删除 node-modules

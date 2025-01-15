@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .container {
+        /* width: 640px; */
+        max-width: 860px;
+        min-width: 640px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        /* justify-content: space-between; */
+        background-color: #acff2d;
+        gap: 20px;
+      }
+      .crad {
+        width: 200px;
+        height: 100px;
+        background: blueviolet;
+        /* margin-bottom: 16px; */
+        /* margin-right: 20px; */
+      }
+/* 
+      .crad:nth-child(4n) {
+        margin-right: 0px;
+      } */
+
+      .crad:last-child {
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="crad">1</div>
+      <div class="crad">2</div>
+      <div class="crad">3</div>
+      <div class="crad">4</div>
+      <div class="crad">5</div>
+      <div class="crad">6</div>
+    </div>
+  </body>
+</html>

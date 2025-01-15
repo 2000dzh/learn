@@ -5,6 +5,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 // 拆分css,为每个包含 CSS 的 JS 文件创建一个 CSS 文件，并且支持 CSS 和 SourceMaps 的按需加载( webpack v5)
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+// 清除无用css
+const { PurgeCSSPlugin } = require('purgecss-webpack-plugin')
+const glob = require('glob') // 文件匹配模式
+
 module.exports = {
   mode: 'development',
   // 上下文
@@ -141,6 +145,30 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',
       chunkFilename: '[id].css',
+    }),
+
+    new PurgeCSSPlugin({
+      paths: glob.sync(
+        [
+          path.join(__dirname, '../src/**/*'),
+          // `${path.join(__dirname, "../src")}/**/*.tsx`,
+          // `${path.join(__dirname, "../public")}/index.html`,
+        ],
+        { nodir: true }
+      ),
+      // 忽略指定目录
+      ignore: ['node_modules'],
+      // 只优化指定的css文件
+      only: ['index'],
+      safelist () {
+        return {
+          standard: [
+            "body",
+            /^el-/ // 过滤以el-开头的类名，哪怕没用到也不删除
+          ],
+          deep: [/css__module__/],//因为这个插件会导致css模块化的样式被排除再外，所以这里要做个过滤
+        }
+      }
     }),
   ],
 }

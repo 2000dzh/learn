@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      :root {
+        --color1: #f8766f;
+        --color2: #69cd90;
+        --color3: #ffb800;
+        --color4: #d3e3fd;
+
+        --size: 100px;
+        --size-two: 50px;
+
+        --alpha: 0.7;
+        --angle1: 30deg;
+        --angle2: 180deg;
+        --angle3: 270deg;
+
+        --r0: 30px;
+      }
+
+      .RingChart1 {
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+
+        background: conic-gradient(
+          var(--color1) var(--angle1),
+          var(--color2) var(--angle1) var(--angle2),
+          var(--color3) var(--angle2) var(--angle3),
+          var(--color4) var(--angle3)
+        );
+
+        margin-bottom: 10px;
+      }
+
+      .RingChart2 {
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        position: relative;
+
+        background: conic-gradient(
+          var(--color1) var(--angle1),
+          var(--color2) var(--angle1) var(--angle2),
+          var(--color3) var(--angle2) var(--angle3)
+        );
+
+        margin-bottom: 10px;
+      }
+      .RingChart2::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: var(--size-two);
+        height: var(--size-two);
+        border-radius: 50%;
+        background: #fff;
+      }
+
+      .tool-box {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tool-box">
+      <h1>设置圆的大小</h1>
+      <input id="SizeInput" type="text" />
+
+      <h1>设置内圆的大小</h1>
+      <input id="SizeInputTwo" type="text" />
+    </div>
+
+    <div class="RingChart1"></div>
+    <div class="RingChart2"></div>
+
+    <script>
+      const SizeInput = document.getElementById('SizeInput')
+      const SizeInputTwo = document.getElementById('SizeInputTwo')
+
+      SizeInput.addEventListener('change', (event) => {
+        const value = event.target.value
+        document.documentElement.style.setProperty('--size', `${value ? Number(value) : 100}px`)
+      })
+
+      SizeInputTwo.addEventListener('change', (event) => {
+        const value = event.target.value
+        document.documentElement.style.setProperty('--size-two', `${value ? Number(value) : 50}px`)
+      })
+
+      const size = getComputedStyle(document.documentElement).getPropertyValue('--size')
+      console.log(size)
+    </script>
+  </body>
+</html>

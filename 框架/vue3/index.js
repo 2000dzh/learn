@@ -21,3 +21,6 @@ if (window.__VUE_DEVTOOLS_GLOBAL_HOOK__) {
   window.__VUE_DEVTOOLS_GLOBAL_HOOK__.emit("init", vm);
   console.log("==> vue devtools now is enabled");
 }
+
+// vue3中动态加载远程组件
+// https://zhuanlan.zhihu.com/p/713182373

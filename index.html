@@ -55,6 +55,7 @@
     </style>
   </head>
   <body>
+    // https://www.bilibili.com/video/BV1Xw6GYhEdM/?spm_id_from=333.788.recommend_more_video.13&vd_source=692353464081b3c198c7b3131b381813
     <button id="app" class="box">测试</button>
     <img src="" alt="" />
     <span class="animate__fadeInRight animate__animated">1212121</span>
@@ -86,19 +87,6 @@
       }
 
       console.log(time(Date.now(), Date.now() + 1000 * 60 * 60 * 24 + 1000 * 1))
-    </script>
-
-    <script>
-      function handleMove(e) {
-        setPosition({ x: e.clientX, y: e.clientY })
-      }
-      onMounted(() => {
-        window.addEventListener('pointermove', handleMove)
-      })
-
-      卸载钩子(() => {
-        window.removeEventListener('pointermove', handleMove)
-      })
     </script>
   </body>
 </html>

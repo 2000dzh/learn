@@ -1,10 +1,16 @@
 <template>
-  <router-view> </router-view>
+  <!-- <router-view> </router-view> -->
+  <Demo />
+  <!-- <div>1</div> -->
 </template>
 
 <script>
+import Demo from './views/demo.vue'
 export default {
   name: 'App',
+  components: {
+    Demo,
+  },
   data() {
     return {}
   },

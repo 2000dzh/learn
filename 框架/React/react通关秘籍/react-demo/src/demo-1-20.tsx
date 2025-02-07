@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons'
 import { Button, Form, Input } from 'antd'
 
@@ -25,15 +25,12 @@ const App: React.FC = () => {
     console.log('Received values of form:', values)
   }
 
-  const [blessing_list] = useState({ names: [1, 2] })
-
   return (
     <Form
       name="dynamic_form_item"
       {...formItemLayoutWithOutLabel}
       onFinish={onFinish}
       style={{ maxWidth: 600 }}
-      initialValues={blessing_list}
     >
       <Form.List
         name="names"
@@ -52,9 +49,10 @@ const App: React.FC = () => {
             {fields.map((field, index) => (
               <Form.Item
                 {...(index === 0 ? formItemLayout : formItemLayoutWithOutLabel)}
-                label={`Passengers${index}`}
+                label={index === 0 ? 'Passengers' : ''}
                 required={false}
                 key={field.key}
+                name={[field.name, 'id']}
               >
                 <Form.Item
                   {...field}
@@ -104,7 +102,7 @@ const App: React.FC = () => {
       </Form.List>
       <Form.Item>
         <Button type="primary" htmlType="submit">
-          2121
+          212111
         </Button>
       </Form.Item>
     </Form>

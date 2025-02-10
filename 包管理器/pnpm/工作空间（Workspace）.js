@@ -7,7 +7,7 @@
 // pnpm 并不是通过目录名称，而是通过目录下 package.json 文件的 name 字段来识别仓库内的包与模块的
 
 // 全局依赖(供全局使用)
-// pnpm i element-plus axios  -w
+// pnpm add element-plus axios  -w
 
 // 为指定模块安装外部依赖
 // 为 a 包安装 lodash

@@ -12,7 +12,8 @@ module.exports = {
     devtool: isProd ? '' : 'source-map',
     resolve: {
       alias: {
-        '@': path.join(__dirname, 'src')
+        '@': path.join(__dirname, 'src'),
+        '@vue2-element': path.join(__dirname, './packages/core')
       }
     },
     externals: isProd ? {

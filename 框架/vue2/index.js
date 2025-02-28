@@ -53,3 +53,7 @@ function initMethods (vm, methods) {
 
 // Vue2 针对于数组从始至终都没有进行 defineReactive，只不过给它增加了一个 observer 对象罢了，当遇到一个 value 是数组时 Vue2 会进行遍历针对于每个元素执行 defineReactive 操作，唯独数组本身没有
 
+
+// vue2性能优化技巧
+// 揭秘 Vue.js 九个性能优化技巧
+// https://juejin.cn/post/6922641008106668045

@@ -2,8 +2,12 @@
   "name": "@vue2-element/core",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "type": "module",
+  "exports": {
+    "./dist": {
+      "import": "./dist/*"
+    }
+  },
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "clean": "rimraf dist1"

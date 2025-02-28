@@ -16,3 +16,7 @@
 // 指定内部模块之间的互相依赖
 //  指定 a 模块依赖于 b 模块
 // pnpm --filter a add b
+
+// 删除指定包的依赖
+// 删除 my-subpackage 包的 lodash
+// pnpm remove --filter my-subpackage lodash

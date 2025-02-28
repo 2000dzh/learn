@@ -4,7 +4,10 @@ import {
   Get,
   Inject,
   Query,
+  StreamableFile,
 } from '@nestjs/common';
+import { createReadStream } from 'fs';
+import { join } from 'path';
 import { AppService } from './app.service';
 import { RedisService } from './redis/redis.service';
 
@@ -69,5 +72,23 @@ export class AppController {
       [longitude, latitude],
       radius,
     );
+  }
+
+  @Get('file')
+  getFile(): StreamableFile {
+    const file = createReadStream(join(process.cwd(), 'package.json'));
+    return new StreamableFile(file, {
+      type: 'application/json',
+      disposition: 'attachment;',
+    });
+  }
+
+  @Get('file2')
+  getFile2(): StreamableFile {
+    const file = createReadStream(join(process.cwd(), 'package.json'));
+    return new StreamableFile(file, {
+      type: 'application/json',
+      disposition: 'inline',
+    });
   }
 }

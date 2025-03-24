@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="http://127.0.0.1:5500/baseFile/index.js"></script>
+  </head>
+  <body>
+    <h1>主应用</h1>
+    <button id="VueDemo">打开子应用vue-demo</button>
+    <button id="ReactDemo">打开子应用react-demo</button>
+
+    <div id="app"></div>
+    <script>
+      const vueDemo = document.getElementById('VueDemo')
+      const reactDemo = document.getElementById('ReactDemo')
+
+      vueDemo.addEventListener('click', () => {
+        window.location.href = '/#/vue-demo/home'
+      })
+      reactDemo.addEventListener('click', () => {
+        window.location.href = '/#/react-demo'
+      })
+    </script>
+  </body>
+</html>

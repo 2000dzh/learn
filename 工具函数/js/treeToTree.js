@@ -7,7 +7,7 @@ let arr = [
   { id: 1212, name: '部门5', pid: 12 },
 ]
 
-function arrTotree(arr) {
+function arrTotree (arr) {
   if (!Array.isArray(arr)) {
     return
   }

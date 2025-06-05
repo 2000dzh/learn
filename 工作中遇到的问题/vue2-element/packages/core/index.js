@@ -1,1 +1,0 @@
-export { default as ElSelectV2 } from '@vue2-element/el-select-v2'

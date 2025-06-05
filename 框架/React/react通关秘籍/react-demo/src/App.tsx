@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from 'react'
-// import { Select } from 'antd'
+import { Select } from 'antd'
 import Demo11 from './demo-11-21.tsx'
 // import Demo11 from './demo-1-20.tsx'
 
@@ -146,14 +146,14 @@ function App() {
 
   return (
     <>
-      {/* <Select
+      <Select
         defaultValue={index}
         style={{ width: '100%' }}
         options={comOptions}
         onChange={handleChange}
       />
-      <Suspense>{Demo(index)}</Suspense> */}
-      <Demo11></Demo11>
+      <Suspense>{Demo(index)}</Suspense>
+      {/* <Demo11></Demo11> */}
     </>
   )
 }

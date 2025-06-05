@@ -18,7 +18,6 @@ function suspend () {
   timeTask = null
 }
 
-
 /**
  * 示例
  */

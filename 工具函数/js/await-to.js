@@ -1,7 +1,7 @@
 
 /**
  * @param { Promise } promise
- * @param { Object } errorExt - Additional Information you can pass to the err object
+ * @param { Object } errorExt - 传递给 err 对象的额外信息
  * @return { Promise }
  */
 function to1 (promise, errorExt) {
